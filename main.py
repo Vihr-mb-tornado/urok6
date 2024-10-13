@@ -4,8 +4,6 @@ from person import Action
 from person import Rest
 from person import Work
 
-
-#l = []
 human0 = Person('Вася', 50, 50, 10.00)
 human1 = Person('Петя', 50, 50, 10.00)
 human2 = Person('Александр', 50, 50, 10.00)

@@ -58,11 +58,13 @@ class Person:
             print(f'{self.name}: нема грошей')
 
     def do(self, act: Action):
+
         #Якщо переданий об'єкт класу Work - те саме, що і з Action,
         #тільки якщо значення настрою більше 90, то грошей має додатись на 10% більше;
         if type(act) == Work:
             if act.mood>90:
                 act.money=act.money+act.money*0.1
+
         #Якщо переданий об'єкт класу Rest - те саме, що і з Action,
         #тільки якщо значення здоров'я менше 40, то настрої має додатись на 20% менше;
         if type(act) == Rest:
@@ -70,7 +72,3 @@ class Person:
                 act.mood=act.mood-act.mood*0.2
 
         self.change_state(act.health, act.mood, act.money)
-
-
-
-
