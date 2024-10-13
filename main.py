@@ -1,6 +1,9 @@
 ﻿import random
 from person import Person
 from person import Action
+from person import Rest
+from person import Work
+
 
 #l = []
 human0 = Person('Вася', 50, 50, 10.00)
@@ -13,9 +16,9 @@ while True:
         # праця (додає гроші, забирає здоров'я та настрій)
         # відпочинок (додає настрій та здоров'я, але може відібрати гроші).
         if random.randint(0, 1):
-            a = Action('відпочинок', random.randint(0, 50), random.randint(0, 50), float(random.randint(-50, 0)))
+            a = Rest('відпочинок', random.randint(0, 50), random.randint(0, 20), float(random.randint(-50, 0)))
         else:
-            a = Action('праця', random.randint(-20, 20), random.randint(-20, 20), float(random.randint(0, 50)))
+            a = Work('праця', random.randint(-20, 20), random.randint(-20, 0), float(random.randint(0, 50)))
         human.do(a)
         print(human)
     if not l[0].is_alive() and not l[1].is_alive() and not l[2].is_alive():

@@ -1,4 +1,4 @@
-﻿# import random
+﻿import random
 class Action:
     name = ''
     health = 0
@@ -10,6 +10,14 @@ class Action:
         self.health = health
         self.mood = mood
         self.money = money
+
+class Work (Action):
+    def __init__(self, name, health, mood, money):
+        Action.__init__(self, name, health, mood, money)
+
+class Rest (Action):
+    def __init__(self, name, health, mood, money):
+        Action.__init__(self, name, health, mood, money)
 
 class Person:
     name = ''
@@ -50,6 +58,17 @@ class Person:
             print(f'{self.name}: нема грошей')
 
     def do(self, act: Action):
+        #Якщо переданий об'єкт класу Work - те саме, що і з Action,
+        #тільки якщо значення настрою більше 90, то грошей має додатись на 10% більше;
+        if type(act) == Work:
+            if act.mood>90:
+                act.money=act.money+act.money*0.1
+        #Якщо переданий об'єкт класу Rest - те саме, що і з Action,
+        #тільки якщо значення здоров'я менше 40, то настрої має додатись на 20% менше;
+        if type(act) == Rest:
+            if act.health<40:
+                act.mood=act.mood-act.mood*0.2
+
         self.change_state(act.health, act.mood, act.money)
 
 
