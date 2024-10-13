@@ -1,4 +1,16 @@
 ﻿# import random
+class Action:
+    name = ''
+    health = 0
+    mood = 0
+    money = 0
+
+    def __init__(self, name, health, mood, money ):
+        self.name = name
+        self.health = health
+        self.mood = mood
+        self.money = money
+
 class Person:
     name = ''
     health = 100
@@ -12,10 +24,10 @@ class Person:
         self.money = money
 
     def __str__(self):
-        return f' -< {self.name} >- \n' \
-            f' Здоров`я: {self.health}\n'\
-            f' Настрій: {self.mood}\n'\
-            f' Грощі: {self.money}\n'
+        return f' -< {self.name} >- ' \
+            f' Здоров`я: {self.health}'\
+            f' Настрій: {self.mood}'\
+            f' Грощі: {self.money}'
 
     def is_alive(self):
         if (self.health<=0) or (self.mood<=0) or (self.money<=0):
@@ -36,6 +48,10 @@ class Person:
         self.money = self.money + money
         if self.money<=0:
             print(f'{self.name}: нема грошей')
+
+    def do(self, act: Action):
+        self.change_state(self, act.health, act.mood, act.money)
+
 
 
 
