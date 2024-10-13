@@ -1,5 +1,7 @@
 ﻿import random
 from person import Person
+from person import Action
+
 #l = []
 human0 = Person('Вася', 50, 50, 10.00)
 human1 = Person('Петя', 50, 50, 10.00)
@@ -11,18 +13,21 @@ while True:
         # праця (додає гроші, забирає здоров'я та настрій)
         # відпочинок (додає настрій та здоров'я, але може відібрати гроші).
         if random.randint(0, 1):
-            h=random.randint(0, 50)
-            md=random.randint(0, 50)
-            mn=float(random.randint(-50, 0))
+            a = Action('відпочинок', random.randint(0, 50), random.randint(0, 50), float(random.randint(-50, 0)))
         else:
-            h=random.randint(-20, 20)
-            md=random.randint(-20, 20)
-            mn=float(random.randint(0, 50))
-        human.change_state(h, md, mn)
+            a = Action('праця', random.randint(-20, 20), random.randint(-20, 20), float(random.randint(0, 50)))
+        human.do(a)
         print(human)
     if not l[0].is_alive() and not l[1].is_alive() and not l[2].is_alive():
         print('To be Continued')
         break
+
+#h = Person('Кхы', 50, 50, 10.00)
+#a = Action('пішов працювати', -1,-1, 10.0)
+#print(h)
+#h.do(a)
+#print(h)
 '''
 
 '''
+

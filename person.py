@@ -50,7 +50,7 @@ class Person:
             print(f'{self.name}: нема грошей')
 
     def do(self, act: Action):
-        self.change_state(self, act.health, act.mood, act.money)
+        self.change_state(act.health, act.mood, act.money)
 
 
 
