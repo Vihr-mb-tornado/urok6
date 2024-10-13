@@ -1,4 +1,6 @@
 ﻿import random
+from operator import length_hint
+
 from person import Person
 from person import Action
 from person import Rest
@@ -19,7 +21,12 @@ while True:
             a = Work('праця', random.randint(-20, 20), random.randint(-20, 0), float(random.randint(0, 50)))
         human.do(a)
         print(human)
-    if not l[0].is_alive() and not l[1].is_alive() and not l[2].is_alive():
+        # Видаляемо вибувших
+        if not human.is_alive():
+            print(human.name + " вибув")
+            l.remove(human)
+
+    if len(l)==0:
         print('To be Continued')
         break
 

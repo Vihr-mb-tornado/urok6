@@ -35,7 +35,7 @@ class Person:
         return f' -< {self.name} >- ' \
             f' Здоров`я: {self.health}'\
             f' Настрій: {self.mood}'\
-            f' Грощі: {self.money}'
+            f' Гроші: {self.money}'
 
     def is_alive(self):
         if (self.health<=0) or (self.mood<=0) or (self.money<=0):
