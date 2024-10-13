@@ -1,25 +1,27 @@
-﻿import requests
-response = requests.get("https://whenisthenextmcufilm.com/api")
-print(response)
-print('\n')
-if response.ok:
-    # print(response.text)
-    print('\n\n')
-    film = response.json()
-    print('When is the next MCU film?')
-    print('\n')
-    print(film['title'] + ' releases in')
-    print(str(film['days_until']) + ' days!')
-    print('Release Date: ' + film['release_date'])
-    print('Production Type: ' + film['type'])
-    print('What\'s afterwards? ' + film['following_production']['title'])
+﻿import person
 
-    print('\n\n')
-    print(film['overview'])
+human = Person(name='Вася', money=10.0, mood=50, health=100)
 
-else:
-    print(f'{response.status.code}')
+print(human)
 
 '''
+human = Person(name='Тарас', money=0, mood=100, health=100)
 
+print(human)
+# === Тарас ===
+# Здоров'я: 100
+# Настрій: 100
+# Капітал: 0
+
+human.change_state(
+         money = 100,
+         mood = -20,
+         health = -5
+     )
+
+print(human)
+# === Тарас ===
+# Здоров'я: 95
+# Настрій: 80
+# Капітал: 100
 '''
